@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <!-- CSS files here -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/sidebar.css') }}">
+    </head>
+    <body>
+        <div>
+            Home:
+            <a href="{{ url_for('home') }}">Home</a>
+
+            Account:
+            <a href="{{ url_for('account') }}">Account</a>
+
+            Forum:
+            <a href="{{ url_for('forum') }}">Forum</a>
+
+            Activities:
+            <a href="{{ url_for('activities') }}">Activities</a>
+
+            ConTest:
+            <a href="{{ url_for('connectionTest') }}">ConTest</a>
+        </div>
+        
+        <hr>
+
+        {% block content %}{% endblock %}
+
+        <div id="sidebar-popup" class="sidebar-popup">
+            <div class="sidebar-content">
+                <div id="chatbox">
+                    <div class="chat-messages">
+                        {% for message in chat_messages %}
+                        <div class="chat-message {{ message.sender }}">{{ message.message }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type your message..." id="message-input">
+                        <button id="send-message">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button id="open-sidebar">Open Chatbox</button>
+
+     
+        <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+    </body>
+</html>

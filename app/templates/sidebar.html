@@ -1,0 +1,46 @@
+<div id="sidebar-popup" class="sidebar-popup">
+  <!-- Chatbox -->
+  <div class="chatbox">
+      <div class="chat-messages"></div>
+      <input type="text" id="message-input" placeholder="Type your message...">
+      <button id="send-message">Send</button>
+  </div>
+  <button id="close-sidebar" class="close-sidebar">Close Sidebar</button>
+</div>
+
+<script>
+  const sidebarPopup = document.getElementById('sidebar-popup');
+  const openSidebarBtn = document.getElementById('open-sidebar');
+  const closeSidebarBtn = document.getElementById('close-sidebar');
+  const chatMessages = document.querySelector('.chat-messages');
+  const chatInput = document.getElementById('message-input');
+  const sendMessageBtn = document.getElementById('send-message');
+
+  openSidebarBtn.addEventListener('click', () => {
+      sidebarPopup.classList.add('open');
+  });
+
+  closeSidebarBtn.addEventListener('click', () => {
+      sidebarPopup.classList.remove('open');
+  });
+
+  sendMessageBtn.addEventListener('click', () => {
+      const message = chatInput.value.trim();
+      if (message) {
+          addMessageToChat(message, 'user');
+          sendToChatGPT(message);
+          chatInput.value = '';
+      }
+  });
+
+  function addMessageToChat(message, sender) {
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('chat-message', sender);
+      messageElement.textContent = message;
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+
+
+</script>

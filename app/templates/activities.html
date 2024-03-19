@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    Scenarios:
+    <a href="{{ url_for('scenarios') }}">Scenarios</a> 
+    Simulations:
+    <a href="{{ url_for('simulations') }}">Simulations</a> 
+    Quiz:
+    <a href="{{ url_for('quiz') }}">Quiz</a> 
+{% endblock %}

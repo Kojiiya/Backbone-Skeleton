@@ -1,0 +1,70 @@
+/* Sidebar Popup */
+.sidebar-popup {
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initial position off-screen */
+    width: 300px;
+    height: 100%;
+    background-color: #f1f1f1;
+    transition: right 0.3s ease-in-out;
+    z-index: 999; /* Ensure the sidebar is on top */
+}
+
+/* Show the sidebar when the 'open' class is added */
+.sidebar-popup.open {
+    right: 0;
+}
+
+/* Chatbox */
+#chatbox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.chat-message.user {
+    background-color: #e2f3fb;
+    align-self: flex-end;
+}
+
+.chat-message.bot {
+    background-color: #f0f0f0;
+    align-self: flex-start;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #e6e6e6;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.chat-input button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
